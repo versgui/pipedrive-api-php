@@ -28,6 +28,27 @@ class Persons
     }
 
     /**
+     * Returns all persons
+     *
+     * @return array returns details of persons
+     */
+    public function getAll()
+    {
+        return $this->curl->get('persons');
+    }
+
+    /**
+     * Delete a person
+     *
+     * @param  int   $id pipedrive person id
+     * @return array
+     */
+    public function delete($id)
+    {
+        return $this->curl->delete('persons/'. $id);
+    }
+
+    /**
      * Returns a person
      *
      * @param  int   $id pipedrive persons id

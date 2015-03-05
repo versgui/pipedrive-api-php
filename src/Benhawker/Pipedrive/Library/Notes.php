@@ -29,6 +29,27 @@ class Notes
     }
 
     /**
+     * Returns all Notes
+     *
+     * @return array returns details of all notes
+     */
+    public function getAll()
+    {
+        return $this->curl->get('notes');
+    }
+
+    /**
+     * Delete a Note
+     *
+     * @param  int   $id pipedrive note id
+     * @return array
+     */
+    public function delete($id)
+    {
+        return $this->curl->delete('notes/'. $id);
+    }
+
+    /**
      * Adds a note
      *
      * @param  array $data note detials

@@ -32,6 +32,27 @@ class Deals
     }
 
     /**
+     * Delete a Deal
+     *
+     * @param  int   $id pipedrive deal id
+     * @return array
+     */
+    public function delete($id)
+    {
+        return $this->curl->delete('deals/'. $id);
+    }
+
+    /**
+     * Returns all Deals
+     *
+     * @return array returns details of all deals
+     */
+    public function getAll()
+    {
+        return $this->curl->get('deals');
+    }
+
+    /**
      * Returns a deal
      *
      * @param  int   $id pipedrive deals id

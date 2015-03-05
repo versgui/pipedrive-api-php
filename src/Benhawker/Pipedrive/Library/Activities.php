@@ -30,6 +30,27 @@ class Activities
     }
 
     /**
+     * Returns all Activities
+     *
+     * @return array returns details of all stages
+     */
+    public function getAll()
+    {
+        return $this->curl->get('activities');
+    }
+
+    /**
+     * Delete an Activity
+     *
+     * @param  int   $id pipedrive activity id
+     * @return array
+     */
+    public function delete($id)
+    {
+        return $this->curl->delete('activities/'. $id);
+    }
+
+    /**
      * Adds a activity
      *
      * @param  array $data activity detials

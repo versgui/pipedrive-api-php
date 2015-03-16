@@ -33,9 +33,9 @@ class Notes
      *
      * @return array returns details of all notes
      */
-    public function getAll()
+    public function getAll($limit)
     {
-        return $this->curl->get('notes');
+        return $this->curl->get('notes', array('limit' => $limit));
     }
 
     /**

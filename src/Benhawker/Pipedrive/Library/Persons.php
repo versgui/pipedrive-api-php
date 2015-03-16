@@ -32,9 +32,9 @@ class Persons
      *
      * @return array returns details of persons
      */
-    public function getAll()
+    public function getAll($limit)
     {
-        return $this->curl->get('persons');
+        return $this->curl->get('persons', array('limit' => $limit));
     }
 
     /**
@@ -68,6 +68,17 @@ class Persons
     public function getByName($name)
     {
         return $this->curl->get('persons/find', array('term' => $name));
+    }
+
+    /**
+     * Returns a person / people
+     *
+     * @param  string $email
+     * @return array  returns detaals of a person
+     */
+    public function getByEmail($email)
+    {
+        return $this->curl->get('persons/find', array('term' => $email, 'search_by_email' => 1));
     }
 
     /**

@@ -34,9 +34,9 @@ class Activities
      *
      * @return array returns details of all stages
      */
-    public function getAll()
+    public function getAll($limit = 100)
     {
-        return $this->curl->get('activities');
+        return $this->curl->get('activities', array('limit' => $limit));
     }
 
     /**

@@ -32,9 +32,9 @@ class Stages
      *
      * @return array returns details of all stages
      */
-    public function getAll()
+    public function getAll($limit)
     {
-        return $this->curl->get('stages');
+        return $this->curl->get('stages', array('limit' => $limit));
     }
 
     /**

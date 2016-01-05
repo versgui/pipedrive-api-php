@@ -56,7 +56,7 @@ class Deals
      * Returns a deal
      *
      * @param  int   $id pipedrive deals id
-     * @return array returns detials of a deal
+     * @return array returns details of a deal
      */
     public function getById($id)
     {
@@ -67,7 +67,7 @@ class Deals
      * Returns a deal / deals
      *
      * @param  string $name pipedrive deals title
-     * @return array  returns detials of a deal
+     * @return array  returns details of a deal
      */
     public function getByName($name, $personId=null, $orgId=null)
     {
@@ -84,8 +84,8 @@ class Deals
     /**
      * Adds a deal
      *
-     * @param  array $data deal detials
-     * @return array returns detials of the deal
+     * @param  array $data deal details
+     * @return array returns details of the deal
      */
     public function add(array $data)
     {
@@ -100,9 +100,9 @@ class Deals
     /**
      * Updates a deal
      *
-     * @param  int   $dealId pipedrives deal Id
-     * @param  array $data   new detials of deal
-     * @return array returns detials of a deal
+     * @param  int   $dealId pipedrive deal Id
+     * @param  array $data   new details of deal
+     * @return array returns details of a deal
      */
     public function update($dealId, array $data = array())
     {
@@ -114,11 +114,22 @@ class Deals
      *
      * @param  int   $dealId  deal id
      * @param  int   $stageId stage id
-     * @return array returns detials of the deal
+     * @return array returns details of the deal
      */
     public function moveStage($dealId, $stageId)
     {
         return $this->curl->put('deals/' . $dealId, array('stage_id' => $stageId));
+    }
+
+    /**
+     * Get activities associated with a deal
+     *
+     * @param  int   $dealId  deal id
+     * @return array return a list
+     */
+    public function getActivities($dealId)
+    {
+        return $this->curl->get('deals/' . $dealId .'/activities');
     }
 
 }

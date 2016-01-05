@@ -53,8 +53,8 @@ class Activities
     /**
      * Adds a activity
      *
-     * @param  array $data activity detials
-     * @return array returns detials of the activity
+     * @param  array $data activity details
+     * @return array returns details of the activity
      */
     public function add(array $data)
     {
@@ -66,4 +66,17 @@ class Activities
 
         return $this->curl->post('activities', $data);
     }
+
+    /**
+     * Update an activity
+     *
+     * @param int $activityId ExActivity ID
+     * @param array $activityData Activity data. A value "id" (the activity id) must be specified.
+     * @return array returns details of the activity
+     */
+    public function updateActivity($activityId, array $activityData = array())
+    {
+        return $this->curl->put('activities/'. $activityId, $activityData);
+    }
+
 }

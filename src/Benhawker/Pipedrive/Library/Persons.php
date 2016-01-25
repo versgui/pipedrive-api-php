@@ -32,9 +32,9 @@ class Persons
      *
      * @return array returns details of persons
      */
-    public function getAll($limit)
+    public function getAll($limit, $start = 0)
     {
-        return $this->curl->get('persons', array('limit' => $limit));
+        return $this->curl->get('persons', array('limit' => $limit, 'start' => $start));
     }
 
     /**

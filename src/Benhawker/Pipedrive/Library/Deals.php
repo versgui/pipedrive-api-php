@@ -47,9 +47,9 @@ class Deals
      *
      * @return array returns details of all deals
      */
-    public function getAll($limit)
+    public function getAll($limit, $start = 0)
     {
-        return $this->curl->get('deals', array('limit' => $limit));
+        return $this->curl->get('deals', array('limit' => $limit, 'start' => $start));
     }
 
     /**
